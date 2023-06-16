@@ -1,0 +1,9 @@
+<h2>Driver List</h2>
+
+<ul>
+  <li *ngFor="let driver of drivers">
+    {{ driver.firstName }} {{ driver.lastName }} - {{ driver.email }} - {{ driver.phoneNumber }}
+  </li>
+</ul>
+
+<button routerLink="/driver">Manage Drivers</button>

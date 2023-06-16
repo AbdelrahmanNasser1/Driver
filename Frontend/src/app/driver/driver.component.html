@@ -1,0 +1,50 @@
+<h2>Driver List</h2>
+
+<ul>
+  <li *ngFor="let driver of drivers" [class.selected]="driver === selectedDriver" (click)="onSelectDriver(driver)">
+    {{ driver.firstName }} {{ driver.lastName }} - {{ driver.email }} - {{ driver.phoneNumber }}
+  </li>
+</ul>
+
+<div *ngIf="selectedDriver">
+  <h2>Update Driver</h2>
+  <div>
+    <label for="firstName">First Name:</label>
+    <input id="firstName" [(ngModel)]="selectedDriver.firstName" type="text" required>
+  </div>
+  <div>
+    <label for="lastName">Last Name:</label>
+    <input id="lastName" [(ngModel)]="selectedDriver.lastName" type="text" required>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" [(ngModel)]="selectedDriver.email" type="email" required>
+  </div>
+  <div>
+    <label for="phoneNumber">Phone Number:</label>
+    <input id="phoneNumber" [(ngModel)]="selectedDriver.phoneNumber" type="tel" required>
+  </div>
+  <button (click)="updateDriver()">Update</button>
+  <button (click)="deleteDriver(selectedDriver)">Delete</button>
+</div>
+
+<hr>
+
+<h2>Create Driver</h2>
+<div>
+  <label for="newFirstName">First Name:</label>
+  <input id="newFirstName" [(ngModel)]="newDriver.firstName" type="text" required>
+</div>
+<div>
+  <label for="newLastName">Last Name:</label>
+  <input id="newLastName" [(ngModel)]="newDriver.lastName" type="text" required>
+</div>
+<div>
+  <label for="newEmail">Email:</label>
+  <input id="newEmail" [(ngModel)]="newDriver.email" type="email" required>
+</div>
+<div>
+  <label for="newPhoneNumber">Phone Number:</label>
+  <input id="newPhoneNumber" [(ngModel)]="newDriver.phoneNumber" type="tel" required>
+</div>
+<button (click)="createDriver()">Create</button>
